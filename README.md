@@ -15,3 +15,17 @@ $ cp -rp .env.example .env
 $ vim .env & specify src directory with folder 'htdocs' in it
 $ docker-compose up -d
 ```
+
+To stop :
+
+```
+$ docker-compose stop
+
+```
+
+To remove :
+
+```
+$ docker-compose down
+
+```
