@@ -24,7 +24,7 @@ services:
       - ./conf/mysql:/etc/mysql
       - ./data/mysql:/var/lib/mysql
       - ./log/mysql/:/var/log/mysqld.log
-
+      - ./conf/bash:/bin/bash
   web:
     container_name: docker-nginx
     image: nginx:1.15-alpine
@@ -77,6 +77,7 @@ services:
     ports:
       - "19999:19999"
     restart: always
+    
   phpmyadmin:
         image: phpmyadmin/phpmyadmin
         container_name: docker-phpMyAdmin
