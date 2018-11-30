@@ -8,7 +8,9 @@
 
 ## Get started
 
-use 'db' instead of locahost or 127.0.0.1 when working with mysql
+## Note:
+
+use '**db**' instead of locahost or 127.0.0.1 when working with mysql
 
 ```
 $ git clone https://github.com/oshou/docker-lemp-stack.git
