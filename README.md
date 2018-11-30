@@ -29,3 +29,8 @@ To remove :
 $ docker-compose down
 
 ```
+To get bash shell (remember to chmod +x ./conf/bash)
+
+```
+docker exec -it docker-nginx "/bin/bash"
+```
