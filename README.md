@@ -15,7 +15,7 @@
 
 
 ```
-$ git clone https://github.com/oshou/docker-lemp-stack.git
+$ git clone https://github.com/ganuonglachanh/docker-lemp-stack.git
 $ cd docker-lemp-stack
 $ cp -rp .env.example .env
 $ vim .env & specify src directory **with folder 'htdocs' in it**
