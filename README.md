@@ -18,9 +18,13 @@
 $ git clone https://github.com/ganuonglachanh/docker-lemp-stack.git
 $ cd docker-lemp-stack
 $ cp -rp .env.example .env
-$ vim .env & specify src directory **with folder 'htdocs' in it**
+$ mkdir www
+$ cd www
+$ mkdir htdocs
+$ vim .env & specify src directory = 'www' (with folder 'htdocs' in www)
 $ docker-compose up -d
 ```
+Your home in **./www/htdocs**
 
 To stop :
 
