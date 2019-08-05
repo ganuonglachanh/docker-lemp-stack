@@ -29,7 +29,7 @@ services:
       - ./conf/bash:/bin/bash
   web:
     container_name: docker-nginx
-    image: nginx:1.15-alpine
+    image: nginx:1.17.2-alpine
     working_dir: /var/www
     ports:
       - 80:80
@@ -52,7 +52,7 @@ services:
 
   cache:
     container_name: docker-memcached
-    image: memcached:1.5-alpine
+    image: memcached:1.5.16-alpine
     ports:
       - 11211:11211
     volumes_from:
@@ -60,7 +60,7 @@ services:
 
   db:
     container_name: docker-mysql57
-    image: mysql:5.7
+    image: mysql:5.7.27
     working_dir: /var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
     ports:
@@ -72,16 +72,17 @@ services:
 
   system-monitor:
     container_name: docker-monitor
-    image: titpetric/netdata
+    image: titpetric/netdata:1.14.0
     volumes:
       - /sys:/host/sys:ro
       - /proc:/host/proc:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
       - "19999:19999"
     restart: always
     
   phpmyadmin:
-        image: phpmyadmin/phpmyadmin
+        image: phpmyadmin/phpmyadmin:4.8.5
         container_name: docker-phpMyAdmin
         ports:
             - "8888:80"
