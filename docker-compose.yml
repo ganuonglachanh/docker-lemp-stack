@@ -5,7 +5,7 @@ services:
     container_name: docker-nginx
     env_file: .env
     build: ./conf/nginx
-    working_dir: /var/www
+    working_dir: /var/www/html/htdocs
     tty: true
     ports:
       - 80:80
