@@ -10,6 +10,11 @@
 1. use '**db**' instead of locahost or 127.0.0.1 when working with mysql
 2. phpMyAdmin: http://127.0.0.1:8888/
 3. server stats: http://127.0.0.1:19999/
+4. If error with mysql, remove all container and volume then restart docker:
+```
+docker rm -f $(docker ps -a -q)
+docker volume rm $(docker volume ls -q)
+```
 ## Get started
 
 
@@ -18,10 +23,8 @@
 $ git clone https://github.com/ganuonglachanh/docker-lemp-stack.git
 $ cd docker-lemp-stack
 $ cp -rp .env.example .env
-$ mkdir www
-$ cd www
-$ mkdir htdocs
-$ vim .env & specify src directory = 'www' (with folder 'htdocs' in www)
+$ chmod +x ./conf/bash
+$ nano .env & specify src directory = 'www' (with folder 'htdocs' in www)
 $ docker-compose up -d
 ```
 Your home in **./www/htdocs**
