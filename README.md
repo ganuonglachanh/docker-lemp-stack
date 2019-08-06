@@ -15,6 +15,7 @@
 docker rm -f $(docker ps -a -q)
 docker volume rm $(docker volume ls -q)
 ```
+5. nano .env & specify src directory = 'www' (with folder 'htdocs' in www)
 ## Get started
 
 
@@ -23,8 +24,6 @@ docker volume rm $(docker volume ls -q)
 $ git clone https://github.com/ganuonglachanh/docker-lemp-stack.git
 $ cd docker-lemp-stack
 $ cp -rp .env.example .env
-$ chmod +x ./conf/bash
-$ nano .env & specify src directory = 'www' (with folder 'htdocs' in www)
 $ docker-compose up -d
 ```
 Your home in **./www/htdocs**
