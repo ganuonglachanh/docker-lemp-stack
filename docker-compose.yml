@@ -27,8 +27,10 @@ services:
     container_name: docker-php7fpm
     build: ./conf/php-fpm
     working_dir: /var/www
+    expose:
+        - "9000" # for nginx with fastcgi
     ports:
-      - 9000:9000
+      - "2222:22" # ssh to php
     depends_on:
       - cache
       - db
