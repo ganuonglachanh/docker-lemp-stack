@@ -28,18 +28,28 @@ $ docker-compose up -d
 ```
 Your home in **./www/htdocs**
 
+## Xdebug
+
+```
+Change Xdebug Port in phpStorm to 9001
+```
+
+To connect ssh to docker-php7fpm (username = root password = root) :
+
+```
+$ ssh root@127.0.0.1 -p 2222
+```
+
 To stop :
 
 ```
 $ docker-compose stop
-
 ```
 
 To remove :
 
 ```
 $ docker-compose down
-
 ```
 To get bash shell (remember to chmod +x ./conf/bash)
 
