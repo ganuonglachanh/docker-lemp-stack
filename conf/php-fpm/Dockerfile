@@ -63,18 +63,8 @@ RUN rm -rf /tmp/* /var/cache/apk/*
 COPY ./start.sh /root/start.sh
 RUN chmod +x /root/start.sh
 RUN ln -s /usr/local/bin/php /usr/bin/php
-# install node 12
-# RUN apt-get update && \
-#     apt-get install -y --no-install-recommends gnupg && \
-#     curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
-#     apt-get update && \
-#     apt-get install -y --no-install-recommends nodejs && \
-#     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-#     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-#     apt-get update && \
-#     apt-get install -y --no-install-recommends yarn && \
-#     npm install -g npm
-
+# NODEJS
+RUN apk add --update nodejs npm yarn && rm -rf /var/cache/apk/*  
 
 CMD ["/root/start.sh"]
 
