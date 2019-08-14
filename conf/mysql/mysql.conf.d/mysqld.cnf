@@ -29,3 +29,21 @@ datadir		= /var/lib/mysql
 # Disabling symbolic-links is recommended to prevent assorted security risks
 symbolic-links=0
 sql_mode=ONLY_FULL_GROUP_BY
+
+# for restore sql backup file
+#wait_timeout = 68800
+#max_allowed_packet = 512M
+#innodb_lock_wait_timeout = 5000
+#innodb_buffer_pool_size=2000M
+#innodb_log_file_size=500M
+#innodb_log_buffer_size = 800M
+#net_read_timeout        = 600
+#net_write_timeout       = 600
+#sort_buffer_size=2000M
+#max_heap_table_size = 64M
+#read_buffer_size = 2M
+#read_rnd_buffer_size = 16M
+#join_buffer_size = 512M
+#query_cache_limit = 20M
+#tmp_table_size = 256M
+#innodb_io_capacity = 21000
