@@ -52,6 +52,20 @@ services:
       - ./conf/memcached/memcached:/etc/sysconfig/memcached
     networks:
       - lempnetwork
+  redis:
+    image: redis:5.0.5-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    hostname: redis
+    expose:
+        - "6379"
+    ports:
+      - "6379:6379"
+    networks:
+      - lempnetwork
+    volumes:
+      - ./data/redis:/data
+      - ./conf/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    restart: always
 
   db:
     container_name: docker-mysql57
