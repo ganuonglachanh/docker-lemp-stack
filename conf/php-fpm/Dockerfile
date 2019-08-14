@@ -66,6 +66,29 @@ RUN ln -s /usr/local/bin/php /usr/bin/php
 # NODEJS
 RUN apk add --update nodejs npm yarn && rm -rf /var/cache/apk/*  
 
+# Install PHP Extensions (igbinary & memcached)
+RUN apk add --no-cache --update libmemcached-libs zlib
+RUN set -xe && \
+    cd /tmp/ && \
+    apk add --no-cache --update --virtual .phpize-deps $PHPIZE_DEPS && \
+    apk add --no-cache --update --virtual .memcached-deps zlib-dev libmemcached-dev cyrus-sasl-dev && \
+# Install igbinary (memcached's deps)
+    pecl install igbinary && \
+# Install memcached
+    ( \
+        pecl install --nobuild memcached && \
+        cd "$(pecl config-get temp_dir)/memcached" && \
+        phpize && \
+        ./configure --enable-memcached-igbinary && \
+        make -j$(nproc) && \
+        make install && \
+        cd /tmp/ \
+    ) && \
+# Enable PHP extensions
+    docker-php-ext-enable igbinary memcached && \
+    rm -rf /tmp/* && \
+    apk del .memcached-deps .phpize-deps
+
 CMD ["/root/start.sh"]
 
 EXPOSE 22 9000 9001
