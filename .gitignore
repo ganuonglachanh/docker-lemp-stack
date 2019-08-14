@@ -1,6 +1,5 @@
 log/*
 data/*
 !.gitkeep
-.env
 www/*
 .DS_Store
