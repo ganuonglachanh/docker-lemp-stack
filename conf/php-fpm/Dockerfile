@@ -35,6 +35,8 @@ RUN apk update \
     && docker-php-source extract \
     && pecl install xdebug redis \
     && docker-php-ext-enable xdebug redis \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl \
     && docker-php-source delete
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
