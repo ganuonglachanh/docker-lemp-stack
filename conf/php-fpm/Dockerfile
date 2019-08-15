@@ -34,6 +34,8 @@ RUN apk update \
     && docker-php-ext-enable opcache \
     && pecl install mcrypt-1.0.1 \
     && docker-php-ext-enable mcrypt \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl \
     && docker-php-source delete
 
 RUN apk add -U --no-cache nano bash wget
